@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="mg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitoriana an’i Jesosy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-light: #f5f5f5;
+      --bg-dark: #121212;
+      --text-light: #333;
+      --text-dark: #f5f5f5;
+      --primary: #4caf50;
+      --secondary: #388e3c;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    header {
+      text-align: center;
+      padding: 2em 1em;
+      background-color: var(--primary);
+      color: white;
+    }
+    nav {
+      background-color: var(--secondary);
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 1em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .hero {
+      text-align: center;
+      padding: 2em;
+      animation: fadeIn 1.5s ease;
+    }
+    .hero img {
+      max-width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      margin-bottom: 1em;
+    }
+    .verse {
+      margin: 2em;
+      font-style: italic;
+      font-size: 1.1em;
+      text-align: center;
+    }
+    .section {
+      padding: 2em;
+    }
+    .contact-section {
+      background-color: #eee;
+      color: #000;
+      padding: 2em;
+    }
+    body.dark .contact-section {
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+    .contact-info {
+      margin-bottom: 1.5em;
+      line-height: 1.8em;
+      text-align: center;
+    }
+    .contact-info p {
+      font-size: 1.1em;
+      margin: 0.5em 0;
+    }
+    form {
+      max-width: 500px;
+      margin: 2em auto 0;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8em 1.5em;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: var(--secondary);
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #333;
+      color: white;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle">
+    <label>
+      <input type="checkbox" id="modeToggle" /> Mode Sombre / Mazava
+    </label>
+  </div>  <header>
+    <h1>Fitoriana an’i Jesosy Kristy</h1>
+    <p>“Fa Andriamanitra toy izao no nitiavany izao tontolo izao…” — Jaona 3:16</p>
+  </header>  <nav>
+    <a href="#">Fandraisana</a>
+    <a href="#momba">Momba anay</a>
+    <a href="#vaovao">Vaovao</a>
+    <a href="#contact">Hifandray</a>
+  </nav>  <section class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Jesus_Crucifixion_icon.png/600px-Jesus_Crucifixion_icon.png" alt="Sarin’i Jesosy" />
+    <h2>Manasa anao hanaraka an’i Jesosy</h2>
+    <p>Ny fahazavana sy fiainana mandrakizay no atolony ho anao.</p>
+  </section>  <section class="verse">
+    <blockquote>“Fa ho avy indray Jesosy amin’ny voninahiny, ka hanavotra izay miandry Azy.”<br>— Hebreo 9:28</blockquote>
+    <blockquote>“Ary, indro, avy Izy amin’ny rahona, ka hahita Azy ny maso rehetra…”<br>— Apokalypsy 1:7</blockquote>
+  </section>  <section class="section" id="momba">
+    <h2>Momba anay</h2>
+    <p>Mpino sy mpitory ny Filazantsara izahay, maniry ny hizara ny vaovao mahafaly momba an’i Jesosy Kristy amin’ny fiteny Malagasy. Ny tanjonay dia ny hanampy ny olona hahita fiainana ao amin’i Kristy amin’ny alalan’ny Tenin’Andriamanitra sy fitoriana anaty fitiavana.</p>
+  </section>  <section class="section" id="vaovao">
+    <h2>Vaovao</h2>
+    <ul>
+      <li>2025-04-10: Fizarana Baiboly tao Toamasina — olona 150 no nandray anjara.</li>
+      <li>2025-03-28: Fampianarana momba ny Fiverenan’i Jesosy tao amin’ny radio.</li>
+      <li>2025-03-01: Fanokafana pejy vaovao ao amin'ny Facebook: "Fitoriana an'i Jesosy - Malagasy"</li>
+    </ul>
+  </section>  <section class="contact-section" id="contact">
+    <h2>Hifandray Aminay</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> ephraimnavalona@gmail.com</p>
+      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/AndriamihajanavalonaFinoanaEphraim" target="_blank">Andriamihajanavalona Finoana Ephraïm</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/261338471985" target="_blank">+261 33 84 719 85</a></p>
+    </div><form action="mailto:ephraimnavalona@gmail.com" method="post" enctype="text/plain">
+  <input type="text" name="Anarana" placeholder="Anaranao" required />
+  <input type="email" name="Email" placeholder="Email-nao" required />
+  <textarea name="Hafatra" rows="5" placeholder="Soraty eto ny hafatrao" required></textarea>
+  <button type="submit">Alefaso</button>
+</form>
+
+  </section>  <footer>
+    <p>© 2025 Fitoriana an’i Jesosy | Miray amin’ny finoana sy fitiavana</p>
+  </footer>  <script>
+    const toggle = document.getElementById('modeToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script></body>
+</html> 
