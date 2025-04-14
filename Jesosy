@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="mg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHATAFE - Fanontaniana ara-baiboly</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #fff;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eee;
+      border-radius: 5px;
+    }
+    .param {
+      font-size: 14px;
+      margin-top: 30px;
+    }
+    .toggle-mode {
+      float: right;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="toggle-mode" onclick="toggleMode()">Mode: <span id="mode-text">Clair</span></div>
+    <h1>CHATAFE (Fanontaniana ara-baiboly)</h1>
+    <p><em>"Teny mahatonga sainao eto?"</em></p>
+    <textarea id="question" placeholder="Eto no soratana ny fanontaniana"></textarea><br>
+    <button onclick="sendQuestion()">Alefa</button>
+    <div class="response" id="response"></div>
+    <div class="param">
+      <strong>Paramètre:</strong><br>
+      Email: ephraimnavalona@gmail.com<br>
+      WhatsApp: 033 84 719 85<br>
+      Facebook: Andriamihajanavalona Finoana Ephraïm
+    </div>
+  </div>  <script>
+    function toggleMode() {
+      const body = document.body;
+      body.classList.toggle("dark-mode");
+      document.getElementById("mode-text").innerText = body.classList.contains("dark-mode") ? "Sombre" : "Clair";
+    }
+
+    async function sendQuestion() {
+      const question = document.getElementById("question").value;
+      const resDiv = document.getElementById("response");
+
+      const response = await fetch("http://localhost:5000/api/chatbot", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: question })
+      });
+
+      const data = await response.json();
+      resDiv.innerText = data.reply;
+    }
+  </script>  <!-- Backend Flask Code (for reference) -->  <pre>
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route("/api/chatbot", methods=["POST"])
+def chatbot():
+    data = request.get_json()
+    message = data.get("message", "")
+    reply = handle_message(message)
+    return jsonify({"reply": reply})
+
+def handle_message(message):
+    msg = message.lower()
+
+    if 'salama' in msg or 'hi' in msg:
+        return "Manao ahoana! Ahoana ny anaranao?"
+
+    elif 'anaranao' in msg:
+        return "Izaho dia chatbot tsotra izay namboarin' i Ephraïm mba hanazava ny Baiboly aminao."
+
+    elif 'famoronana' in msg:
+        return ("Araka ny Genesisy toko 1, Andriamanitra no namorona izao rehetra izao tao anatin'ny 6 andro. "
+                "Namorona ny lanitra, tany, hazavana, biby, zavamaniry, ary olombelona Izy.")
+
+    elif 'andriamanitra' in msg:
+        return ("Andriamanitra dia Andriamanitra iray, masina, mahery, fitiavana, ary Mpamorona. "
+                "Izy no niandohana sy fiafaran'ny zava-drehetra, ary tia ny olombelona rehetra.")
+
+    elif 'jesosy' in msg and 'nahatongavana' in msg:
+        return ("Jesosy no Zanaky ny Andriamanitra, tonga teto an-tany mba hamonjy ny olona amin'ny fahotana. "
+                "Nateraka avy tamin'ny virijiny Maria, ary maty teo amin'ny hazo fijaliana ho antsika.")
+
+    elif 'andro fahafito' in msg or 'sabotsy' in msg:
+        return ("Araka ny Baiboly (Eksodosy 20:8-11), ny andro fahafito dia Sabotsy, izay natokana ho andro fitsaharana sy fivavahana. "
+                "Tsy Alahady no andro fahafito, fa Sabotsy.")
+
+    elif 'tsy mankato' in msg or 'hanjo' in msg:
+        return ("Ireo izay tsy mankato sy mandà an'Andriamanitra dia hanana fanamelohana amin'ny farany, "
+                "araka ny Apokalypsy 20. Tsy hidiran'izy ireo amin'ny fiainana mandrakizay.")
+
+    elif 'fiavian\'i jesosy faharoa' in msg or 'ho avy indray' in msg:
+        return ("Jesosy dia ho avy fanindroany hanangona ny olo-masina, araka ny 1 Tesalonianina 4:16-17. "
+                "Hisy feon'anjely sy trompetra, ka ireo maty ao amin'i Kristy hitsangana voalohany.")
+
+    elif 'mandrakizay' in msg or 'hiaraka aminy' in msg:
+        return ("Ny fanantenana lehibe ho an'ny mpino dia ny hiaraka amin'Andriamanitra sy Jesosy mandrakizay ao amin'ny lanitra vaovao sy tany vaovao.")
+
+    else:
+        return "Azafady, azonao averina ve amin'ny fomba hafa ny fanontanianao?"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+  </pre></body>
+</html>
